@@ -25,19 +25,17 @@ d_sales = pd.read_excel(ex_file, usecols=['Package', 'Value'])
 
 
 # here we start the heavy lifting of the algorithm
+# first we need to sort the returning data into unique occurrences and store that in a different variable/dataframe
 
-# names of the dsa
-names = []
-# package = []
-amount = []
+# create new list of  DSA names in order of unique appearance 
+d_names = []
 
-for a,b in rows:
+# package and respective amount
+p_amount = []
+
+for a in names:
+    for b in names:
     names.append(a.value)
-    # package.append(s.value)
-    amount.append(b.value)
-
-
-for i in names:
 	for j in d_sales:
 		print(f'name:{i} \n')
 		print(f'sale:{j} \n')
