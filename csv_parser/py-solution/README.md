@@ -21,6 +21,8 @@ import openpyxl
 from pathlib import Path
 ```
 
+[!https://www.marsja.se/wp-content/uploads/2020/02/step1-to-read-xlsx-files-import-the-modules.jpg]
+
 ### 2. Setting the Path to the Excel (xlsx) File
 In the second step, we will create a variable using Path. Furthermore, this variable will point at the location and filename of the Excel file we want to import with Python:
 
@@ -31,6 +33,8 @@ print(xlsx_file)
 ```
 
 Note, “SimData” is a subdirectory to that of the Python script (or notebook). That is, if we were to store the Excel file in a completely different directory, we need to put in the full path. For example, xlsx_file = Path(Path.home(), 'Documents', 'SimData', 'play_data.xlsx')if the data is stored in the Documents in our home directory.
+
+[https://www.marsja.se/wp-content/uploads/2020/02/step2-to-reading-a-xlsx-file-using-Python-set-the-path.jpg]
 
 
 ### 3. Read the Excel File (Workbook)
