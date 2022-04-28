@@ -231,3 +231,118 @@ After we have a character vector with all the file names that we want to import 
 
 ### Setting the Data type for data or columns
 
+We can also, if we like, set the data type for the columns. Let’s use Pandas to read the example_sheets1.xlsx again. In the Pandas read_excel example below we use the dtype parameter to set the data type of some of the columns.
+
+``` r
+df <- read_excel('SimData/example_sheets2.xlsx', 
+                 col_types=c("text", "text", "numeric",
+                            "numeric", "text"),
+                   sheet='Session1')
+
+str(df)
+```
+
+[https://www.marsja.se/wp-content/uploads/2019/10/reading_xlsx_files_in_r_datatypes.png]
+
+### Importing Excel Files in RStudio
+Before we continue this Excel in R tutorial, we are going to learn how to load xlsx files to R using RStudio. This is quite simple, open up RStudio, click on the Environment tab (right in the IDE), and then Import Dataset. That is, in this section, we will answer the question of how do I import an Excel file into RStudio?
+
+Now we’ll get a dropdown menu and we can choose from different types of sources. As we are going to work with Excel files we choose “From Excel…”
+
+### Writing R Dataframes to Excel
+Excel files can, of course, be created in R. In this section, we will learn how to write an Excel file using R. As for now, we have to use the r-package xlsx to write .xlsx files. More specifically, to write to an Excel file we will use the write.xlsx function:
+
+
+We will start by creating a dataframe with some variables.
+
+``` r
+df <- data.frame("Age" = c(21, 22, 20, 19, 18, 23), "Names" = c("Andreas", "George", "Steve",
+                           "Sarah", "Joanna", "Hanna"))
+
+
+str(df)
+```
+[https://www.marsja.se/wp-content/uploads/2019/10/writing_dataframes_to_excel_in_R.png]
+
+Now that we have a dataframe to write to xlsx we start by using the write.xlsx function from the xlsx package.
+
+```r
+library(xlsx)
+write.xlsx(df, 'names_ages.xlsx', 
+           sheetName = "Sheet1"
+```
+
+Code language: R (r)
+In the output below the effect of not using any parameters is evident. If we don’t use the parameter sheetName we get the default sheet name, ‘Sheet1’.
+
+As can be noted in the image below, the Excel file has column (‘A’) containing numbers. These are the index from the dataframe.
+
+[https://www.marsja.se/wp-content/uploads/2019/10/R_write_to_xlsx_readxl_tidyverse.png]
+
+In the next example we are going to give the sheet another name and we will set the row.names parameter to FALSE.
+
+``` r
+write.xlsx(df, 'names_ages.xlsx', 
+           sheetName = "Names and Ages",
+          row.names=FALSE)
+```
+
+[https://www.marsja.se/wp-content/uploads/2019/10/save_dataframe_to_excel_in_R_statistical_programming_environment.png]
+
+As can be seen, in the image above, we get a new sheet name and we don’t have the indexes as a column in the Excel sheet. Note, if you get the error ‘could not find function “write.xlsx”‘ it may be that you did not load the xlsx library.
+
+### Writing Multiple Pandas Dataframes to an Excel File:
+In this section, we are going to learn how to write multiple dataframes to one Excel file. More specifically, we will use R and the xlsx package to write many dataframes to multiple sheets in an Excel file.
+
+First, we start by creating three dataframes and add them to a list.
+
+```r
+df1 <-data.frame('Names' = c('Andreas', 'George', 'Steve',
+                           'Sarah', 'Joanna', 'Hanna'),
+                   'Age' = c(21, 22, 20, 19, 18, 23))
+
+df2 <- data.frame('Names' =  c('Pete', 'Jordan', 'Gustaf',
+                           'Sophie', 'Sally', 'Simone'),
+                   'Age' = c(22, 21, 19, 19, 29, 21))
+
+df3 <- data.frame('Names' = c('Ulrich', 'Donald', 'Jon',
+                           'Jessica', 'Elisabeth', 'Diana'),
+                   'Age' = c(21, 21, 20, 19, 19, 22))
+
+dfs &lt;- list(df1, df2, df3)
+```
+
+Code language: R (r)
+Next, we are going to create a workbook using the createWorkbook function.
+
+```r
+wb <- createWorkbook(type="xlsx")
+Code language: R (r)
+Finally, we are going to write a custom function that we are going to use together with the lapply function, later. In the code chunk below,
+
+add_dataframes <- function(i){
+    
+    df = dfs[i]
+    sheet_name = paste0("Sheet", i)
+    sheet = createSheet(wb, sheet_name)
+    
+    addDataFrame(df, sheet=sheet, row.names=FALSE)
+}
+Code language: R (r)
+It’s time to use the lapply function with our custom R function. On the second row, in the code chunk below, we are writing the workbook to an xlsx file using the saveWorkbook function:
+
+lapply(seq_along(dfs), function(x) multiple_dataframe(x))saveWorkbook(wb, 'multiple_Sheets.xlsx')
+```
+
+Code language: R (r)
+### Summary: How to Work With Excel Files in R
+In this working with Excel in R tutorial we have learned how to:
+
+### Read Excel files and Spreadsheets using read_excel and read.xlsx,
+
+### Load Excel files to dataframes:
+### Import Excel sheets and skip rows,
+### Merging many sheets to a dataframe,
+### Reading many Excel files into one dataframe,
+### Write a dataframe to an Excel file,
+### Creating many dataframes and writing them to an Excel file with many sheets.
