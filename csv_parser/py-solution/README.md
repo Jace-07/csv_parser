@@ -17,9 +17,9 @@ wb = openpyxl.load_workbook(PATH_TO_EXCEL_FILE). # In this post, we will learn m
 ## How to Read an Excel (xlsx) File in Python
 `
 Now, in this section, we will be reading a xlsx file in Python using openpyxl. In a previous section, we have already been familiarized with the general template (syntax) for reading an Excel file using openpyxl and we will now get into this module in more detail. Note, we will also work with the Path method from the Pathlib module.
-
-[https://www.marsja.se/wp-content/uploads/2020/02/6-steps-for-reading-xlsx-excel-files-in-Python-syntax.jpg]
 `
+[https://www.marsja.se/wp-content/uploads/2020/02/6-steps-for-reading-xlsx-excel-files-in-Python-syntax.jpg]
+
 
 ### 1. Import the Needed Modules
 In the first step, to reading a xlsx file in Python, we need to import the modules we need. That is, we will import Path and openpyxl:
@@ -164,13 +164,18 @@ Code language: Python (python)
 Now, in the code examples above, we are using Python list comprehension (twice, in both step 2 and 3). First, we create a list of all the xlsx files in the “XLSX_FILES” directory. Second, we loop through this list and create a list of workbooks. Of course, we could add this to the first line of code above.
 
 ### 4. Work with the Imported Excel Files
-In the fourth step, we can now work with the imported excel files. For example, we can get the first file by adding “[0]” to the list. If we want to know the sheet names of this file we do like this:wbs[0].sheetnames .That is, many of the things we can do, and have done in the previous example on reading xlsx files in Python, can be done when we’ve read multiple Excel files.
+In the fourth step, we can now work with the imported excel files. For example, we can get the first file by adding “[0]” to the list. If we want to know the sheet names of this file we do like this:
+
+```python
+wbs[0].sheetnames
+```
+.That is, many of the things we can do, and have done in the previous example on reading xlsx files in Python, can be done when we’ve read multiple Excel files.
 
 Notice, this is one great example of how to use this programming language. Other examples are, for instance, to use it for renaming files in Python.
 
 Conclusion: Reading Excel (xlsx) Files in Python
 In this post, we have learned how to:
 
-Read an Excel file in Python using openpyxl
-Read a xlsx file to a Python dictionary
-Read multiple Excel fils in Python
+Read an Excel file in Python using openpyxl,
+Read a xlsx file to a Python dictionary,
+Read multiple Excel fils in Python.

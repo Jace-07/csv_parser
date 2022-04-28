@@ -5,7 +5,7 @@
 import math
 import pandas as pd
 
-#
+############################################################
 
 # sales = pd.read_excel('TUK-TUK-04.2022.xlsx')
 
@@ -22,7 +22,7 @@ d_sales = pd.read_excel(ex_file, usecols=['Package', 'Value'])
 
 
 # try converting to json
-#new_json = names.to_json()
+new_json = names.to_json()
 
 """
 # here we start the heavy lifting of the algorithm
@@ -39,24 +39,6 @@ for a in names:
 		d_names.append(a.value)
 		p_amount.append(a.value)
 		print(f'name:{a}\nsale:{b}\n')"""
-
-
-# function to sort the names into unique occurrence
-# memo pad used for the sorting
-# def sort_names(dnames, memo={}, sorted_names=[]):
-	# # iterator to crawl the file length
-	# for i in range(len(dnames):
-	# 	# name variable to fetch names from list
-	# 	for name in dnames:
-	# 		if name in memo:
-	# 			sorted_names += memo[name]
-	# 			i = i + 1
-	# 		else:
-	# 			sorted_names = memo[name]
-	# 			i = i + 1
-	# return sorted_names
-	
-
 
 
 # check dataframe content
