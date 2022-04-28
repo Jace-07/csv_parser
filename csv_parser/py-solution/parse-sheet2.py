@@ -34,11 +34,10 @@ d_names = []
 p_amount = []
 
 for a in names:
-    for b in names:
-    names.append(a.value)
-	for j in d_sales:
-		print(f'name:{i} \n')
-		print(f'sale:{j} \n')
+	for b in d_sales:
+		d_names.append(a.value)
+		p_amount.append(a.value)
+		print(f'name:{a}\nsale:{b}\n')
 
 
 
