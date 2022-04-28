@@ -23,7 +23,9 @@ d_sales = pd.read_excel(ex_file, usecols=['Package', 'Value'])
 # try converting to json
 #new_json = names.to_json()
 
-"""
+
+# here we start the heavy lifting of the algorithm
+
 # names of the dsa
 names = []
 # package = []
@@ -38,7 +40,7 @@ for a,b in rows:
 for i in names:
 	for j in d_sales:
 		print(f'name:{i} \n')
-		print(f'sale:{j} \n')"""
+		print(f'sale:{j} \n')
 
 
 
