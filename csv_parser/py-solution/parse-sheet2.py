@@ -2,6 +2,7 @@
 # by jace mitnick
 
 # we start by importing the module/library we are going to use to interact with our files
+import math
 import pandas as pd
 
 #
@@ -23,7 +24,7 @@ d_sales = pd.read_excel(ex_file, usecols=['Package', 'Value'])
 # try converting to json
 #new_json = names.to_json()
 
-
+"""
 # here we start the heavy lifting of the algorithm
 # first we need to sort the returning data into unique occurrences and store that in a different variable/dataframe
 
@@ -37,8 +38,7 @@ for a in names:
 	for b in d_sales:
 		d_names.append(a.value)
 		p_amount.append(a.value)
-		print(f'name:{a}\nsale:{b}\n')
-
+		print(f'name:{a}\nsale:{b}\n')"""
 
 
 # function to sort the names into unique occurrence
