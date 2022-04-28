@@ -1,20 +1,22 @@
 #!/usr/bin/python3
 # by jace mitnick
 
-
+# we start by importing the module/library we are going to use to interact with our files
 import pandas as pd
 
 #
 
 # sales = pd.read_excel('TUK-TUK-04.2022.xlsx')
 
-
+# here we load the data from the excel file we want to work with
 ex_file = "../TUK-TUK-04.2022.xlsx"
 
 
-# create new read_excel/csv pandas dataframe in variable
+# create new read_excel/csv pandas dataframe in variable from the data in the file we loaded
+# names is for the names of the dsa
 names = pd.read_excel(ex_file, usecols=['DSA'])
 
+# d_sales is for both the packages and their amount
 d_sales = pd.read_excel(ex_file, usecols=['Package', 'Value'])
 
 
