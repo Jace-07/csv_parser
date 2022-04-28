@@ -7,7 +7,7 @@ import pandas as pd
 sales = pd.read_excel('TUK-TUK-04.2022.xlsx')
 
 
-# create a list object for the names in our documnent and return it in chunks of 10
+# create a list object for the names in our document and return it in chunks of 10
 dsa_sales = list(sales['value'])
 
 
@@ -19,8 +19,9 @@ for i in range(len(sales)):
 	sales_strings.append(','.join(dsa_sales[i]))
 	print(sales_strings)
 
+my_columns = ['DSA', 'Value', 'Package']
 
-# reinitialise the pandas final data-frame object with new values/parameters
+# reinitialize the pandas final data-frame object with new values/parameters
 final_dataframe = pd.DataFrame(columns = my_columns)
 
 
@@ -36,9 +37,9 @@ for sales_string in sales_strings:
 			# inside the pandas data-frame add a pandas series object with the data to append
 
 			pd.Series([
-				symbol,
-				data[symbol]['value']['package'], #
-				data[symbol]['value']['DSA'],
+				sale,
+				data[sale]['Value']['Package'], #
+				data[sale]['Value']['DSA'],
 				'N/A'
 
 			], # this is needed for the objects we are working with in pandas otherwise it won't work
@@ -52,7 +53,7 @@ for sales_string in sales_strings:
 
 # iterate through a range from 0 to the total length of the index and calculate how many sales each dsa made
 for i in range(0, len(final_dataframe.index)):
-	final_dataframe.loc[i, 'DSA'] = math.floor(final_dataframe.loc[i, 'value'])  #<-needs an equation
+	final_dataframe.loc[i, 'DSA'] = math.floor(final_dataframe.loc[i, 'Value'])  #<-needs an equation
 
 
 # the final number of sales by adding the total number of sales in the document
